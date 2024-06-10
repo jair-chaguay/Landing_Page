@@ -13,10 +13,12 @@ let loaded = (eventLoaded) => {
     formulario.addEventListener('submit', (event) => {
         event.preventDefault();
 
+        
+
         let name = document.getElementById('nombre').value;
         let mail = document.getElementById('email').value;
         let message = document.getElementById('mensaje').value;
-        
+
         let datos = {
             nombre: name,
             email: mail,
@@ -31,6 +33,8 @@ let loaded = (eventLoaded) => {
         })
             .then(respuesta => respuesta.json())
             .then(datos => {
+                alert("¡Tu respuesta ha sido guardada!")
+                obtenerDatos();
                 console.log(datos); 
             })
             .catch(error => console.error(error));

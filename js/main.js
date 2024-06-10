@@ -1,34 +1,30 @@
 let loaded = (eventLoaded) => {
 
-    window.alert("landing page loaded");
-    console.log(eventLoaded);
-    debugger;
-    let myform = document.getElementById('idform');
-    myform.addEventListener('submit', (eventSubmit) => {
-
-        eventSubmit.preventDefault()
-        let nombre = document.getElementById('name').value;
+    let formulario = document.getElementById('formulario');
+    formulario.addEventListener('submit', (event) => {
+        event.preventDefault();
+        let nombre = document.getElementById('nombre').value;
         let email = document.getElementById('email').value;
-        let mensaje = document.getElementById('message').value;
-
-        if (nombre.length == 0) {
-            alert("Nombre requerido")
-            nombre.focus()
-            return;
-        }
-
-        if (email.length == 0) {
-            alert("Nombre requerido")
-            email.focus()
-            return;
-        }
-
-        if (mensaje.length == 0) {
-            alert("Nombre requerido")
-            mensaje.focus()
-            return;
-        }
-    })
+        let mensaje = document.getElementById('mensaje').value;
+        let datos = {
+            nombre: nombre,
+            email: email,
+            mensaje: mensaje
+        };
+        fetch('https://repositorio-remoto-default-rtdb.firebaseio.com/coleccion', {
+            method: 'POST',
+            body: JSON.stringify(datos),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                console.log(datos); // Imprimir la respuesta del
+                servidor
+            })
+            .catch(error => console.error(error));
+    });
 }
 
 window.addEventListener("DOMContentLoaded", loaded);

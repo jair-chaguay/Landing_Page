@@ -17,11 +17,13 @@ let loaded = (eventLoaded) => {
 
         let name = document.getElementById('nombre').value;
         let mail = document.getElementById('email').value;
+        let movie =document.getElementById('peli').value;
         let message = document.getElementById('mensaje').value;
 
         let datos = {
             nombre: name,
             email: mail,
+            pelicula: movie,
             mensaje: message
         };
         fetch('https://landing-bfe0c-default-rtdb.firebaseio.com/collection.json', {
@@ -51,7 +53,24 @@ async function obtenerDatos(){
     }
 
     let datos=  await respuesta.json();
-    console.log(datos);
+    let votesMap = new Map();
+    for(let key in datos){
+        let votes =datos[key];
+        let favPeli = votes['movie'];
+        let conteo =votesMap.has(favPeli)?votesMap.get(favPeli)+1:1; 
+        votesMap.set(favPeli, conteo);
+    }
+    total= 0;
+    tbody.innerHTML=''
+    console.log(votesMap);
+
+    for(let key in votesMap.keys()){
+        template = '
+        '
+        
+        tbody.innerHTML += template;
+        total += votesMap.get(key);
+    }
 }
 
 window.addEventListener("DOMContentLoaded", loaded);

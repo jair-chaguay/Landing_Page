@@ -65,8 +65,7 @@ async function obtenerDatos(){
     console.log(votesMap);
 
     for(let key in votesMap.keys()){
-        template = '
-        '
+       
         
         tbody.innerHTML += template;
         total += votesMap.get(key);

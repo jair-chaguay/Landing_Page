@@ -507,6 +507,39 @@ a {
       .testimonial-slider-wrap .tns-nav button:hover:before, .testimonial-slider-wrap .tns-nav button.tns-nav-active:before {
         background-color: #3b5d50; }
 
+
+        .card {
+          position: relative;
+          overflow: hidden;
+      }
+      
+      .card-img {
+          width: 100%;
+          height: 600px;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+      }
+      
+      .hover-overlay:hover .card-img {
+          transform: scale(1.1);
+      }
+      
+      .card-img-overlay {
+          background-color: rgba(0, 0, 0, 0.5);
+          color: white;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+      }
+      
+      .hover-overlay:hover .card-img-overlay {
+          opacity: 1;
+      }
+      
+      .card-title, .card-text {
+          margin: 0;
+      }
+
+      
 .before-footer-section {
   padding: 7rem 0 12rem 0 !important; }
 

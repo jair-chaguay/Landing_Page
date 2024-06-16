@@ -637,7 +637,24 @@ a {
     opacity: .7; }
 
 
- 
+#resultados{  
+  background-color: #1A191F;
+  color: white;
+ }
+
+
+
+ .table tr th{
+  font-size: 20px;
+  text-align: center;
+  color: white;
+ }
+
+ #tablebody td{
+  color: white;
+  font-size:15px ;
+  text-align: center;
+ }
 
   #subscriptionForm .subscription-card label{
     color: rgb(106, 106, 106)

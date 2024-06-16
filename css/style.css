@@ -203,6 +203,8 @@ a {
 .section-title {
   color: #2f2f2f; }
 
+
+
 .product-section {
   padding: 7rem 0; }
   .product-section .product-item {
@@ -226,7 +228,7 @@ a {
       font-weight: 800 !important;
       font-size: 18px !important; }
     .product-section .product-item h3, .product-section .product-item strong {
-      color: #2f2f2f;
+      color: rgb(214, 214, 214);
       text-decoration: none; }
     .product-section .product-item .icon-cross {
       position: absolute;
@@ -274,6 +276,10 @@ a {
       visibility: visible; }
     .product-section .product-item:hover:before {
       height: 70%; }
+
+      .product-section .product-item:hover h3 {
+        color: black;
+      }
 
 .why-choose-section {
   padding: 7rem 0; }
